@@ -50,7 +50,7 @@ def checkout(cart, coupons)
   total = 0.0
 
   cart.each do |cart_item, details|
-    binding.pry
+    # binding.pry
     total += (details[:price] * details[:count])
   end #cart.each do
   if total > 100
