@@ -24,11 +24,11 @@ def apply_coupons(cart, coupons)
     if cart.key?(coupon_name)
       temp[:clearance] = cart[coupon_name][:clearance]
       leftover = cart[coupon_name][:count] - temp[:count]
-      if leftover >= 0
+      if leftover >= coupon[:num]
         temp[:count] = (cart[coupon_name][:count]/temp[:count]).floor
         cart[coupon_name][:count] = (cart[coupon_name][:count]%coupon[:num])
+        cart[coupon_name + " W/COUPON"] = temp
       end #if leftover
-      cart[coupon_name + " W/COUPON"] = temp
     end #if cart.key?
   end #coupons.each
   return cart
